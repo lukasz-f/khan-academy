@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.js"></script>
+        <script type="text/javascript" src="Walker.js"></script>
+        <script type="text/javascript">
+            window.onload = function() {
+                var canvas = document.getElementById("canvas1");
+                var w = new Walker();
+
+                var setup = function() {
+                    window.processing.size(500,500);
+                    canvas.width = 500;
+                    canvas.height = 500;
+                    w.setup();
+                }
+                var draw = function() {
+                    w.walk();
+                    w.display();
+                };
+
+                function sketchProc(processing) {
+                    window.processing = processing;
+                    processing.setup = setup;
+                    processing.draw = draw;
+                };
+                new Processing(canvas, sketchProc);
+            }
+        </script>
+        <title>Random walks</title>
+    </head>
+    <body>
+        <p>
+            <canvas id="canvas1"></canvas>
+        </p>
+    </body>
+</html>
