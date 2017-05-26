@@ -14,12 +14,12 @@ Walker.prototype.display = function() {
 };
 
 Walker.prototype.walk = function() {
-    var choice = window.processing.floor(window.processing.random(4));
-    if (choice === 0) {
+    var r = window.processing.random(1);
+    if (r < 0.4) {
         this.x++;
-    } else if (choice === 1) {
+    } else if (r < 0.6) {
         this.x--;
-    } else if (choice === 2) {
+    } else if (r < 0.8) {
         this.y++;
     } else {
         this.y--;

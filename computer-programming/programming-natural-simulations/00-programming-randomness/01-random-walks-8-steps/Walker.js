@@ -9,8 +9,9 @@ Walker.prototype.setup = function() {
 };
 
 Walker.prototype.display = function() {
-    window.processing.stroke(0, 0, 0);
-    window.processing.point(this.x, this.y);
+    window.processing.noStroke();  // draw without border
+    window.processing.fill(173, 173, 173);  // draw with gray color
+    window.processing.ellipse(this.x, this.y, 4, 4);  // draw with ellipse
 };
 
 Walker.prototype.walk = function() {

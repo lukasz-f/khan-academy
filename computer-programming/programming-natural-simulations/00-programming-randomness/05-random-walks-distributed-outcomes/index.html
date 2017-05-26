@@ -2,32 +2,36 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.js"></script>
-        <script type="text/javascript" src="Walker.js"></script>
         <script type="text/javascript">
             window.onload = function() {
                 var canvas = document.getElementById("canvas1");
-                var w = new Walker();
 
                 var setup = function() {
                     window.processing.size(500,500);
                     canvas.width = 500;
                     canvas.height = 500;
-                    w.setup();
+
+                    var num = window.processing.random(1);
+                    // If random number is less than 0.6
+                    if (num < 0.6) {
+                        window.processing.println("Outcome A");
+                    // Between 0.6 and 0.7
+                    } else if (num < 0.7) {
+                        window.processing.println("Outcome B");
+                    // Greater than 0.7
+                    } else {
+                        window.processing.println("Outcome C");
+                    }
                 }
-                var draw = function() {
-                    w.walk();
-                    w.display();
-                };
 
                 function sketchProc(processing) {
                     window.processing = processing;
                     processing.setup = setup;
-                    processing.draw = draw;
                 };
                 new Processing(canvas, sketchProc);
             }
         </script>
-        <title>Random walks 8 steps</title>
+        <title>Random Distributed Outcomes</title>
     </head>
     <body>
         <p>
